@@ -6,10 +6,29 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userSignOut } from '../Actions/UserActions'
 
 function NavBar() {
+  const routes = [
+    { path: '/', breadcrumbName: 'Dashboard' },
+    { path: '/add', breadcrumbName: 'New Question' },
+    { path: '/leaderboard', breadcrumbName: 'Leaderboard' },
+  ]
   const history = useHistory()
   const dispatch = useDispatch()
   const userSignin = useSelector((state) => state.userSignin)
-
+  function itemRender(route, params, routes, paths) {
+    // const index = routes.indexOf(route)
+    // console.log(route, 'end', params, 'end', routes, 'end', paths)
+    return (
+      <button
+        className='AdminDashboardPageLink'
+        onClick={(event) => {
+          history.push(`${route.path}`)
+        }}
+        style={{ color: 'white' }}
+      >
+        {route.breadcrumbName}
+      </button>
+    )
+  }
   return (
     <div>
       <PageHeader
@@ -21,20 +40,14 @@ function NavBar() {
           <button
             className='AdminDashboardPageLink'
             onClick={(event) => {
-              //   window.history.pushState('/')
-              history.push('/admin/dashboard')
+              history.push('/')
             }}
             style={{ color: 'white', fontSize: '1.5rem' }}
           >
             WYD?!
           </button>
         }
-        // breadcrumb={{ routes, itemRender }}
-        // subTitle={
-        //   <span style={{ color: 'white' }}>
-        //     {window.innerWidth > 500 ? 'Tracking Portal' : ''}
-        //   </span>
-        // }
+        breadcrumb={{ routes, itemRender }}
         onBack={() => {
           history.goBack()
         }}
@@ -69,15 +82,12 @@ function NavBar() {
             </div>,
           <div
               style={{
-                // backgroundColor: 'red',
                 display: 'flex',
                 justifyItems: 'flex-end',
                 alignItems: 'flex-end',
-                // position: 'absolute',
                 width: '100%',
               }}
             >
-              {/* <p>hi</p> */}
               <Row justify='center' style={{ width: '100%' }}>
                 <button
                   type='button'

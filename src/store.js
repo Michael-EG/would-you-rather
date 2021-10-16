@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
-import { signinReducer } from './Reducers/UserReducers'
+import { fetchQuestionsReducer } from './Reducers/QuestionReducers'
+import { fetchUsersReducer, signinReducer } from './Reducers/UserReducers'
 // import { data } from './data'
 // import { cartReducer } from './reducers/CartReducers'
 // import {
@@ -36,6 +37,8 @@ const initialState = {
     //   ? JSON.parse(localStorage.getItem('userInfo'))
     //   : null,
   },
+  allUsers: { loading: false, success: false, error: false, message: '', users: null, usersInit: false },
+  questions: { loading: false, sucess: false, error: false, message: '', questionsOrg: [], questionsInit: false, qa: {} },
   //   shippingAddress: {
 
   //   }
@@ -45,6 +48,8 @@ const reducer = combineReducers({
   // productDetails: productDetailsReducer,
   // cart: cartReducer,
   userSignin: signinReducer,
+  allUsers: fetchUsersReducer,
+  questions: fetchQuestionsReducer,
   // userRegister: registerReducer,
   // orderCreate: orderCreateReducer,
   // orderDetails: orderDetailsReducer,

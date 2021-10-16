@@ -76,7 +76,7 @@ function SignInComponent() {
     // console.log(_getUsers())
   }, [])
   return (
-    <div>
+    <div className='center-content'>
       <Card title='Sign In'>
         {userSignin.loading === false && userSignin.success === true && (
           <Alert

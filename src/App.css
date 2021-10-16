@@ -64,6 +64,56 @@
   height: 100%;
 }
 
+.AdminDashboardMainLayout {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 22.5% 77.5%;
+  grid-template-areas: 'side mainArea';
+  /* width: 100%; */
+  min-height: 84vh;
+  height: 100%;
+  overflow-x: hidden;
+  /* background-color: violet; */
+}
+
+.AdminDashboardSideNav {
+  grid-area: side;
+  background-color: #e5e5e5;
+}
+
+.AdminDashboardDataEntryArea {
+  /* changing the naming for the grid area, might cause bugs */
+  grid-area: mainArea;
+  overflow-y: scroll;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.HomeScreen__MainDiv {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 16vh 84vh;
+  grid-template-areas: 'navigationArea' 'mainArea';
+}
+
+.HomeScreen__navigationArea {
+  grid-area: navigationArea;
+  width: 100%;
+  height: 100%;
+}
+
+.HomeScreen__mainArea {
+  grid-area: mainArea;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  /* background-color: red; */
+}
+
+.center-content {
+  margin-left: auto;
+}
+
 /* ----- NavBar CSS ----- */
 
 .AdminDashboardPageLink {
@@ -87,4 +137,93 @@
   width: 100vw !important;
   /* height: 16vh; */
   overflow-x: hidden;
+}
+
+.LginScreen__row_center{
+  display: flex;
+  background-color: red;
+  width: 100%;
+  align-content: center;
+}
+
+/* ----- QuestionsDashboard CSS ----- */
+
+.QuestionsDashboard__TabLayout {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-content: center; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.QuestionsDashboard__CardTitle {
+  color: #222666;
+  cursor: pointer;
+}
+.QuestionsDashboard__CardTitle:hover {
+  text-decoration: underline;
+  color: #666222;
+}
+
+/* ----- NewQuestionScreen CSS ----- */
+
+.NewQuestionScreen__CardCover {
+  margin-top: 2vh;
+  width: 20vw !important;
+  height: 20vw;
+
+}
+
+/* ----- LeaderboardScreen CSS ----- */
+
+.Leaderboard__UserAvatar {
+  object-fit: contain;
+  max-width: 10vw;
+}
+
+.Leaderboard__UserAvatar2 {
+  object-fit: contain;
+  max-width: 15vw;
+}
+
+.Leaderboard__AvatarCol {
+  border-right: 0.1rem solid black;
+  padding-right: 0.2rem;
+  max-width: 20vw;
+}
+
+/* .Leaderboard__AvatarHolder {
+  border-right: 0.1rem solid black;
+  padding-right: 0.1rem;
+} */
+
+.Leaderboard__AvatarIcon {
+  background-color: violet !important;
+  color: orange;
+  font-weight: 900;
+  border: orange 1px solid;
+}
+
+.Leaderboard__DetailsCol {
+  width: 39vw;
+  padding-top: 2vh;
+  padding-left: 2vw;
+}
+
+.highlight {
+  background-color: #e5e5e5;
+}
+
+.block {
+  width: 100%;
+}
+
+.align-text {
+  text-align: start;
+  text-overflow: ellipsis;
+}
+
+h5 {
+  font-size: 1rem;
 }
