@@ -66,7 +66,7 @@ function PollViewScreen() {
         <div className='HomeScreen__navigationArea'><NavBar /></div>
         <div className='HomeScreen__mainArea'>
           <Row justify='center' style={{ marginTop: '4vh' }}>
-            {question !== {} ? (<div>Question Not Found!!!!</div>) : (
+            {question.id === undefined ? (<div>Question Not Found!!!!</div>) : (
               <div key={`div-${userAsking.id}`} style={{ marginBottom: '1vh' }}>
                 <Card title={`${userAsking.name} Asks`} style={{ width: '80vw', borderWidth: '2px', borderColor: 'red' }} bordered>
                   <Row justify='space-between'>
